@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Welcome User</title>
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+	integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+	crossorigin="anonymous">
+
+<!-- Optional theme -->
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
+	integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp"
+	crossorigin="anonymous">
+
+<!-- Latest compiled and minified JavaScript -->
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+	integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+	crossorigin="anonymous"></script>
+</head>
+<body>
+
+	<div class="container">
+		<h2>Hello World</h2>
+		<form class="form-horizontal" method="post" action="/doLogin">
+			<fieldset>
+
+				<!-- Form Name -->
+				<legend>Login Form</legend>
+
+				<!-- Email input-->
+				<div class="form-group">
+					<label class="col-md-4 control-label" for="textinput">Email</label>
+					<div class="col-md-4">
+						<input id="textinput" name="email"
+							placeholder="Enter Your Email" class="form-control input-md"
+							required="" type="email">
+
+					</div>
+				</div>
+
+				<!-- Password input-->
+				<div class="form-group">
+					<label class="col-md-4 control-label" for="password">Password</label>
+					<div class="col-md-4">
+						<input id="password" name="password"
+							placeholder="Enter Your Password" class="form-control input-md"
+							required="" type="password">
+
+					</div>
+				</div>
+
+				<!-- Button -->
+				<div class="form-group">
+					<label class="col-md-4 control-label" for="submit"></label>
+					<div class="col-md-4">
+						<button id="submit" name="submit" class="btn btn-primary">Submit</button>
+					</div>
+				</div>
+
+			</fieldset>
+		</form>
+
+	</div>
+</body>
+</html>

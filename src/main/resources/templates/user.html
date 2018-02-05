@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Welcome User</title>
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+	integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+	crossorigin="anonymous">
+
+<!-- Optional theme -->
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
+	integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp"
+	crossorigin="anonymous">
+
+<!-- Latest compiled and minified JavaScript -->
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+	integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+	crossorigin="anonymous"></script>
+</head>
+<body>
+
+	<div class="container">
+		<div class="container">
+		<h2>Hello <span th:text="${session.suser.getName()}"></span></h2>
+			From Model get name: <span th:text="${name}" /> <br>
+	    <!-- <p th:text="${param.q}">Test</p> -->
+		<div>
+			<h3>User Profile Information</h3>
+			<p>
+				From Session get ID: <span th:text="${session.suser.getId()}" /> <br>
+			</p>
+			<p>
+				From Session get Name: <span th:text="${session.suser.getName()}" />  <br>
+			</p>
+			<p>
+				From Session get Email: <span th:text="${session.suser.getEmail()}" />  <br>
+			</p>
+			<p>
+				From Session get User Type: <span th:text="${session.suser.getUserType()}" />  <br>
+			</p>
+
+		</div>
+		
+		<a th:href="@{/updateUserForm/} + ${session.suser.getId()}"><button class="btn btn-primary">Update Profile</button> </a>
+		<a href="/loggedout"> <button class="btn btn-danger">Log Out</button> </a>
+	</div>
+
+	</div>
+</body>
+</html>

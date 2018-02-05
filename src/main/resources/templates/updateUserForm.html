@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Welcome User</title>
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+	integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+	crossorigin="anonymous">
+
+<!-- Optional theme -->
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
+	integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp"
+	crossorigin="anonymous">
+
+<!-- Latest compiled and minified JavaScript -->
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+	integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+	crossorigin="anonymous"></script>
+</head>
+<body>
+
+	<div class="container">
+		<h2>
+			<span
+				th:text="${session.suser.getUserType() == 'admin'? 'Admin ':'User '} + ${session.suser.getName()}" />
+			<span th:text="${userList}"></span>
+		</h2>
+
+		<form class="form-horizontal" method="post" action="/saveUpdatedForm">
+			<fieldset>
+
+				<!-- Form Name -->
+				<legend>Update User</legend>
+
+				<!-- ID input-->
+				<!-- th:value = "${updatedUser.getId()}" -->
+				<input id="id" name="id" th:attr="value = ${updatedUser.getId()}"
+					class="form-control input-md" required="" type="hidden">
+
+				<!-- User name input-->
+				<div class="form-group">
+					<label class="col-md-4 control-label" for="name">User Name</label>
+					<div class="col-md-4">
+						<input id="name" name="name"
+							th:attr="value = ${updatedUser.getName()}"
+							class="form-control input-md" required="" type="text">
+
+					</div>
+				</div>
+
+				<!-- User password input-->
+				<div class="form-group">
+					<label class="col-md-4 control-label" for="password">User
+						Password</label>
+					<div class="col-md-4">
+						<input id="password" name="password"
+							th:attr="value = ${updatedUser.getPassword()}"
+							class="form-control input-md" required="" type="password">
+
+					</div>
+				</div>
+
+				<!-- Email input-->
+				<div class="form-group">
+					<label class="col-md-4 control-label" for="email">User
+						Email</label>
+					<div class="col-md-4">
+						<input id="email" name="email"
+							th:attr="value = ${updatedUser.getEmail()}"
+							class="form-control input-md" required="" type="text">
+
+					</div>
+				</div>
+
+				<!-- Select Basic -->
+				<div th:if="${session.suser.getUserType() == 'admin'}">
+					<div class="form-group">
+						<label class="col-md-4 control-label" for="userType">User
+							Type</label>
+						<div class="col-md-4">
+							<select id="userType" name="userType" class="form-control">
+								<option value="admin"
+									th:selected="${updatedUser.getUserType() == 'admin'}">Admin</option>
+								<option value="user"
+									th:selected="${updatedUser.getUserType() == 'user'}">User</option>
+							</select>
+						</div>
+					</div>
+				</div>
+				
+
+
+
+				<!-- Button -->
+				<div class="form-group">
+					<label class="col-md-4 control-label" for="update"></label>
+					<div class="col-md-4">
+						<button id="update" name="update" class="btn btn-primary">Update</button>
+					</div>
+				</div>
+
+			</fieldset>
+		</form>
+		<a href="/loggedout"> <button class="btn btn-danger">Log Out</button> </a>
+	</div>
+</body>
+</html>
